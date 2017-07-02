@@ -15,7 +15,7 @@ def keywords(req):
 	words =  req.match_dict['keywords']
 	print("FFFFFFFFFF: " + words)
 	docs = article_service.keywords(words)
-	print("GGGGGGGG: " + docs)
+	print("GGGGGGGG: " + docs.to_json())
 	return req.Response(text="bereh", headers={"Content-Type", "application/json"})
 
 app = Application()
