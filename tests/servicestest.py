@@ -12,8 +12,8 @@ class ArticleServiceTest(unittest.TestCase):
 		size = len(articles)
 		self.assertTrue(size > 0)
 
-	def test_keyword(self, keyword='Test'):
-		articles = self.service.keyword(keyword)
+	def test_keywords(self, keyword='Test'):
+		articles = self.service.keywords(keyword)
 		for article in articles:
 			pprint(article.title)
 		size = len(articles)

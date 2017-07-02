@@ -17,5 +17,5 @@ def keywords(req):
 app = Application()
 app.router.add_route('/', index)
 app.router.add_route('/articles', articles)
-app.router.add_route('/articles/keyword/{keywords}', keywords)
+app.router.add_route('/articles/keywords/{keywords}', keywords)
 app.run(debug=True)
