@@ -15,7 +15,8 @@ def keywords(req):
 	words =  req.match_dict['keywords']
 	print("FFFFFFFFFF: " + words)
 	docs = article_service.keywords(words)
-	return req.Response(text=docs.to_json(), headers={"Content-Type", "application/json"})
+	print("GGGGGGGG: " + docs)
+	return req.Response(text="bereh", headers={"Content-Type", "application/json"})
 
 app = Application()
 app.router.add_route('/', index)
