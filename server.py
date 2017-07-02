@@ -23,5 +23,5 @@ app.router.add_route('/articles/keywords/{keywords}', keywords)
 print("FFFFFFFFFF")
 # host = 'mongodb://azzuwan:Reddoor74@aws-ap-southeast-1-portal.0.dblayer.com:15501/news'
 host = 'mongodb://aws-ap-southeast-1-portal.0.dblayer.com/news'
-connect(db='news',host=host, port=15501, username='azzuwan', password='Reddoor74', alias='default')
+connect(db='news',host=host, port=15501, username='azzuwan', password='Reddoor74', alias='default', connect=False)
 app.run(debug=True)
