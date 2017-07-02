@@ -12,8 +12,7 @@ def articles(req):
 	return req.Response(text=docs.to_json())
 
 def keywords(req):
-	words =  req.match_dict['keywords']
-	print("FFFFFFFFFF: " + words)
+	words =  req.match_dict['keywords']	
 	docs = article_service.keywords(words)	
 	headers = {'Content-Type': 'application/json'}
 	body = docs.to_json().encode()
