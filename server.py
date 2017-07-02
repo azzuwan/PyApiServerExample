@@ -16,7 +16,8 @@ def keywords(req):
 	print("FFFFFFFFFF: " + words)
 	docs = article_service.keywords(words)	
 	headers = {'Content-Type': 'application/json'}
-	return req.Response(body=docs.to_json(), headers=headers)
+	body = docs.to_json().encode()
+	return req.Response(body=body, headers=headers)
 
 app = Application()
 app.router.add_route('/', index)
