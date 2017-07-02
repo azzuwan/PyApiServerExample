@@ -13,6 +13,7 @@ def articles(req):
 def keywords(req):
 	words =  req.match_dict["keywords"]
 	docs = article_service.keywords(words)
+	return req.Response(text=docs.to_json(), headers={"Content-Type", "application/json"})
 
 app = Application()
 app.router.add_route('/', index)
