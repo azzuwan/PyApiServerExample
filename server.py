@@ -1,5 +1,6 @@
 from japronto import Application
 from services.articles import ArticleService
+from mongoengine import *
 
 article_service = ArticleService()
 
