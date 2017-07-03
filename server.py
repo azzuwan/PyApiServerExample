@@ -15,8 +15,8 @@ def articles(req):
 	Get alll articles
 	"""
 	#AsyncIO buffer problem
-	req.transport.set_write_buffer_limits=4096
-	
+	req.transport.set_write_buffer_limits(high=4096)
+
 	docs = article_service.all()	
 	return req.Response(text=docs.to_json())
 
@@ -25,7 +25,7 @@ def keywords(req):
 	Retrieve articles by keywords
 	"""
 	#AsyncIO buffer problem
-	req.transport.set_write_buffer_limits=4096
+	req.transport.set_write_buffer_limits(high=4096)
 
 	words =  req.match_dict['keywords']	
 	docs = article_service.keywords(words)	
