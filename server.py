@@ -16,10 +16,10 @@ def articles(req):
 	"""
 	#AsyncIO transport buffer problem
 	b_size = req.transport.get_write_buffer_limits()
-	print("Transport Buffer Size: " + b_size)
+	print("Transport Buffer Size: " + str(b_size))
 	req.transport.set_write_buffer_limits(high=16384)
 	b_size = req.transport.get_write_buffer_limits()
-	print("Transport Buffer Size After: " + b_size)
+	print("Transport Buffer Size After: " + str(b_size))
 
 
 	docs = article_service.all()	
@@ -31,10 +31,10 @@ def keywords(req):
 	"""
 	#AsyncIO buffer problem
 	b_size = req.transport.get_write_buffer_limits()
-	print("Transport Buffer Size: " + b_size)
+	print("Transport Buffer Size: " + str(b_size))
 	req.transport.set_write_buffer_limits(high=16384)
 	b_size = req.transport.get_write_buffer_limits()
-	print("Transport Buffer Size Afteer: " + b_size)
+	print("Transport Buffer Size Afteer: " + str(b_size))
 
 	words =  req.match_dict['keywords']	
 	docs = article_service.keywords(words)	
