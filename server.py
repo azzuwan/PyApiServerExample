@@ -21,10 +21,13 @@ def keywords(req):
 	"""
 	Retrieve articles by keywords
 	"""
+	#AsyncIO buffer problem
+	req.transport.set_write_buffer_limits=4096
+
 	words =  req.match_dict['keywords']	
 	docs = article_service.keywords(words)	
 	headers = {'Content-Type': 'application/json'}
-	body = docs.to_json().encode()
+	body = docs.to_json().encode()	
 	return req.Response(body=body, headers=headers)
 
 app = Application()
