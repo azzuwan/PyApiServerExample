@@ -17,7 +17,7 @@ def articles(req):
 	#AsyncIO transport buffer problem
 	b_size = req.transport.get_write_buffer_limits()
 	print("Transport Buffer Size: " + str(b_size))
-	req.transport.set_write_buffer_limits(high=16384)
+	req.transport.set_write_buffer_limits(high=131070)
 	b_size = req.transport.get_write_buffer_limits()
 	print("Transport Buffer Size After: " + str(b_size))
 
@@ -32,7 +32,7 @@ def keywords(req):
 	#AsyncIO buffer problem
 	b_size = req.transport.get_write_buffer_limits()
 	print("Transport Buffer Size: " + str(b_size))
-	req.transport.set_write_buffer_limits(high=16384)
+	req.transport.set_write_buffer_limits(high=131070)
 	b_size = req.transport.get_write_buffer_limits()
 	print("Transport Buffer Size Afteer: " + str(b_size))
 
