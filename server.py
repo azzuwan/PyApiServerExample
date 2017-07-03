@@ -14,6 +14,9 @@ def articles(req):
 	"""
 	Get alll articles
 	"""
+	#AsyncIO buffer problem
+	req.transport.set_write_buffer_limits=4096
+	
 	docs = article_service.all()	
 	return req.Response(text=docs.to_json())
 
