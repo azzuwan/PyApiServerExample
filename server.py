@@ -14,8 +14,13 @@ def articles(req):
 	"""
 	Get alll articles
 	"""
-	#AsyncIO buffer problem
+	#AsyncIO transport buffer problem
+	b_size = req.get_write_buffer_limits()
+	print("Transport Buffer Size: " + b_size)
 	req.transport.set_write_buffer_limits(high=16384)
+	b_size = req.get_write_buffer_limits()
+	print("Transport Buffer Size After: " + b_size)
+
 
 	docs = article_service.all()	
 	return req.Response(text=docs.to_json())
@@ -25,7 +30,11 @@ def keywords(req):
 	Retrieve articles by keywords
 	"""
 	#AsyncIO buffer problem
+	b_size = req.get_write_buffer_limits()
+	print("Transport Buffer Size: " + b_size)
 	req.transport.set_write_buffer_limits(high=16384)
+	b_size = req.get_write_buffer_limits()
+	print("Transport Buffer Size Afteer: " + b_size)
 
 	words =  req.match_dict['keywords']	
 	docs = article_service.keywords(words)	
